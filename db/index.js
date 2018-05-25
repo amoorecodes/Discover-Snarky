@@ -1,12 +1,12 @@
 const Sequelize = require('sequelize');
 // const init = require('./snarky.sql');
-const sqlz = new Sequelize('snarky', 'student', 'student', {
+const db = new Sequelize('snarky', 'student', 'student', {
     host: 'localhost',
     dialect: 'mysql',
     operatorsAliases: false
 });
 
-sqlz
+db
     .authenticate()
     .then(() => {
         console.log('YAY! We\'re inside the database!');
@@ -15,4 +15,9 @@ sqlz
         console.log('Whoops! Error: ', err);
     });
 
-module.exports.sqlz = sqlz;
+module.exports.db = db;
+
+const User = require('./models/User.js');
+const Playlist = require('./models/Playlist.js');
+const Song = require('./models/Song.js');
+const UserPlaylist = require('./models/UserPlaylist.js');
