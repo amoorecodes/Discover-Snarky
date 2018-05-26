@@ -6,8 +6,7 @@ const { router } = require('./router');
 
 const PORT = 3000;
 const app = express();
-const static = path.join(__dirname, '../client/static');
-console.log(static, 'this is static');
+const static = path.join(__dirname, './../static');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
