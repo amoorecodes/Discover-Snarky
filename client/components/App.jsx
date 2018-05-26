@@ -10,30 +10,38 @@ export default class App extends React.Component {
         super(props);
         this.state = {
             loggedIn: false,
-            currentUser: ''
+            currentUser: '',
+            currentSong: '',
         };
         this.login = this.login.bind(this);
+        this.searchResult = this.searchResult.bind(this);
     };
 
-    login() {
+    searchResult(results) {
+        console.log(' what we get back', results)
         this.setState({
-            loggedIn: 'true'
+            currentSong: results.data.value
+        })
+    }
+
+    login() {
+        console.log('this works')
+        this.setState({
+            loggedIn: true, 
         });
+        this.setState(this.State);
+        // console.log('state', this.state);
     };
     //create a function that would change loggedIn state to true or false
         //passed in that function to login as props with binding
-    componentDidMount() {
-    //   this.props.login();
-      console.log(this.login)  
-    };
     
 
     render() {
         return (
             <div>
                 {this.state.loggedIn ? <div>
-                <Search />
-                <Results />
+                <Search sendBack={this.searchResult} />
+                <Results quote={this.state.currentSong} />
                 </div> : <Login onLogin={this.login} /> }
             </div>
         )

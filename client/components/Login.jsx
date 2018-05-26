@@ -11,22 +11,28 @@ export default class Login extends Component {
             username: '',
             password: ''
         };
+        this.handleSubmit = this.handleSubmit.bind(this);
     };
 
     handleEnter(event) {
         event.preventDefault();
     }
 
-    handleSubmit() {
+    handleSubmit(event) {
+        event.preventDefault();
         const link=`http://localhost:3000/api/`;
-        // console.log(link)
-        axios.post(link, {username: this.state.username, password: this.state.password})
-            .then( (response) => {
-                if(response.status === 200) {
+        console.log(link)
+        axios
+            .post(link, {username: this.state.username, password: this.state.password})
+            .then( (results) => {
+                console.log('response', results)
+                if(results.status === 201 || 200) {
+                    console.log('this is login response')
                     this.props.onLogin();
                 }
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err,'err'));
+            console.log('end')
     }
 
     handleInput(event) {
@@ -39,7 +45,7 @@ export default class Login extends Component {
 
     render() {
         return (
-            <div>
+            <div class="login">
                 <h1>Discover Snarky</h1>
                 <h3>Please Login</h3>
                 <form>
@@ -47,11 +53,11 @@ export default class Login extends Component {
                 USERNAME:
                 <input type='text' id='username' username={this.state.username} onChange={this.handleInput.bind(this)} />
                 </label>
-                <label>
+                <label><br/>
                 PASSWORD:
-                <input type='text' id='password' password={this.state.password} onChange={this.handleInput.bind(this)} />
+                <input type='text' id='password' password={this.state.password} onChange={this.handleInput.bind(this)} onSubmit={e => this.handleSubmit(e)}/>
                 </label>
-                <input type='submit' value='Log In' onClick={this.handleSubmit.bind(this)}/>
+                <input type='submit' value='Log In' onClick={e => this.handleSubmit(e)}/>
                 </form>
             </div>
         )

@@ -21,3 +21,4 @@ const User = require('./models/User.js');
 const Playlist = require('./models/Playlist.js');
 const Song = require('./models/Song.js');
 const UserPlaylist = require('./models/UserPlaylist.js');
+const PlaylistSongs = require('./models/PlaylistSongs.js');

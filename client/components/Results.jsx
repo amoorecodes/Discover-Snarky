@@ -11,14 +11,17 @@ class Results extends Component {
     };
 
     render() {
+        console.log('stte', this.props)
         return (
             <div>
-            {this.state.playlist.map((song, i) => {
-                <Song song={song} key={i} />
-            })}
+                RESULTS
+                <Song song={this.props.quote} />
             </div>
         );
     };
 }
 
+            // {this.state.quote.map((song, i) => {
+            //     <Song song={song} key={i} />
+            // })}
 export default Results;
