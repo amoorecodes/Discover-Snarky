@@ -13,5 +13,6 @@ const User = db.define('user', {
 });
 
 User.sync();
+User.create({username: 'test', password: '12345'})
 
 module.exports.User = User;

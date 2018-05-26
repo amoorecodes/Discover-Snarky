@@ -1,0 +1,36 @@
+div {
+    background-color: lightblue;
+    align-content: center;
+    border-style: round;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 0 auto; 
+    text-align: center;
+
+}
+
+body {
+    background-color: lightpink
+}
+
+h1,h2,h3,h4,h5,form,input {
+    color: darkslategray;
+    font: helvetica;
+}
+
+h4 {
+    font: Garamond;
+    font-size: 30px;
+}
+p {
+    color: chocolate;
+}
+
+form, input {
+    padding: 5px;
+    margin: 5px;
+}
+div.login {
+    width: 75%;
+    text-align: left;
+}
