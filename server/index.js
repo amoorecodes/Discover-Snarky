@@ -1,9 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const sqlz = require('./../db');
-const { router } = require('./router');
 
+require('./../db');
+
+
+const { router } = require('./router');
 const PORT = 3000;
 const app = express();
 const static = path.join(__dirname, './../static');
