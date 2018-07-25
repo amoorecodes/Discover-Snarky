@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Login from './Login.jsx';
 import Search from './Search.jsx';
@@ -47,17 +46,3 @@ export default class App extends React.Component {
         )
     };  
 };
-        /*if(this.state.loggedIn === false ) {
-            return (
-                <div>
-                <Login onLogin={this.login.bind(this)} /> 
-                </div>
-            )
-        } else if (this.state.loggedIn) {
-            return (
-                <div>
-                <Search />
-                <Results />
-                </div>
-            )
-        }*/

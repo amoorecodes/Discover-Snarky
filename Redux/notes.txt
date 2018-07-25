@@ -1,0 +1,127 @@
+Using Redux: 
+Create constants.js file, put all actions there. 
+Create initialState.json, populate with what would be used in a state. 
+install: 
+- babel-cli
+- babel-preset-latest
+- babel-preset-stage-0
+create .babelrc in root
+
+==== inside .babelrc ==== 
+{
+  "presets" : ["latest", "stage-0"]
+}
+
+=========================
+Reducer - a pure function designed to manage specific parts of your state. 
+
+import constants
+import reducer (object from init state that you will use in your component)
+
+==== example ====
+import {enterUsername} from './initialState.json'
+
+const state = 'none';
+
+const action = {
+  type: constants.enterUsername,
+  payload(what it is changed for): 'unfaceit',
+}
+
+const nextState = goal(state, action)
+
+Redux does not modify a state, it returns a complete new state. 
+
+So, redux has initial state, previous state, dispatching action and next state. 
+
+==== Reducer example ==== 
+
+function counter (state, action) {
+  if(typeof state === 'undefined') {
+    return 0;
+  }
+  if ( action.type === 'INCREMENT') {
+    return state + 1;
+  } else if (action.type === 'DECREMENT') {
+    return state - 1;
+  } else {
+    return state;
+  }
+}
+==== reformat ====
+
+function counter (state = 0, action) {
+  switch (action.type) {
+    case 'INCREMENT':
+      return state + 1;
+    case 'DECREMENT':
+      return state - 1;
+    default: 
+      return state;
+  }
+}
+
+const { createStore } = Redux;
+import { createStore } from 'redux';
+
+const store = createStore(counter);
+
+store.getState() --> returns state
+store.dispatch({ type: 'INCREMENT' }); --> performs actions
+store.subscribe( () => {
+  document.body.innerText = store.getState();
+})
+--> Lets you register a callback that will be called each 
+time the action is dispatched.
+
+document.addEventListener('click', () => {
+  store.dispatch({ type: 'INCREMENT' })
+})
+
+--> this will render starting at 1, after click. Let's refactor it: 
+
+store.getState() --> returns state
+store.dispatch({ type: 'INCREMENT' });
+
+const render = () => {
+  document.body.innerText = store.getState();
+}
+
+store.subscribe(render);
+render(); --> prints out intial 0
+--> Lets you register a callback that will be called each 
+time the action is dispatched.
+
+document.addEventListener('click', () => {
+  store.dispatch({ type: 'INCREMENT' })
+})
+
+==== Let's see how createStore works ====
+
+const createStore = (reducer) =>  {
+  let state;
+  let listeners = [];
+
+  const getState = () => state;
+
+  const dispatch = (action) => {
+    state = reducer(state, action);
+    listeners.forEach(listener => listener());
+  };
+
+  const subscribe = (listener) => {
+    listeners.push(listener);
+    return () => {
+      listeners = listeners.filter(l => l !== listener)
+    }
+  }
+
+  dispath({});
+
+  return { getState, dispatch, subscribe}
+}
+
+==== example in react ====
+
+const render = () => 
+

@@ -1,0 +1,9 @@
+{
+  "loggedIn" : false,
+  "currentUser" : "none",
+  "currentSong" : "If I ever Feel Better",
+  "username" : "none",
+  "password" : "none",
+  "playlist" : [],
+  "query" : "enter song"
+}
