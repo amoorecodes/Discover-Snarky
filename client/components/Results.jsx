@@ -20,7 +20,7 @@ class Results extends Component {
   };
 }
 
-            // {this.state.quote.map((song, i) => {
-            //     <Song song={song} key={i} />
-            // })}
+// {this.state.quote.map((song, i) => {
+//     <Song song={song} key={i} />
+// })}
 export default Results;
