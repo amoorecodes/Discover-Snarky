@@ -10,5 +10,4 @@ Playlist.belongsToMany(Song, { through: PlaylistSongs });
 
 PlaylistSongs.sync();
 
-
 module.exports.PlaylistSongs = PlaylistSongs;
