@@ -1,11 +1,13 @@
 const Sequelize = require('sequelize');
-// const init = require('./snarky.sql');
+
+// ==== define database ==== 
 const db = new Sequelize('snarky', 'root', null, {
     host: 'localhost',
     dialect: 'mysql',
     operatorsAliases: false
 });
 
+// ==== establish a connection ====
 db
     .authenticate()
     .then(() => {
@@ -17,8 +19,10 @@ db
 
 module.exports.db = db;
 
-const User = require('./models/User.js');
-const Playlist = require('./models/Playlist.js');
-const Song = require('./models/Song.js');
-const UserPlaylist = require('./models/UserPlaylist.js');
-const PlaylistSongs = require('./models/PlaylistSongs.js');
+// ==== Require all models after exporting the connection ====
+
+require('./models/User.js');
+require('./models/Playlist.js');
+require('./models/Song.js');
+require('./models/UserPlaylist.js');
+require('./models/PlaylistSongs.js');
