@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { usernameEntered } from '../actions'
 
 class LoginTwo extends   Component {
   render() {
@@ -20,4 +21,8 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(LoginTwo);
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators({usernameEntered: usernameEntered}, dispatch)
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(LoginTwo);
