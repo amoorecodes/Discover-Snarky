@@ -16,6 +16,9 @@ A music discovery service that can ruin your Friday.
 * Next.JS
 * Spotify API
 
+## Stretch Goal
+* React-Native
+
 ### Setup
 Fork and clone the repository to your account. 
 
