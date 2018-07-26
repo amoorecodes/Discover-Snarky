@@ -30,10 +30,10 @@
     "nodemon": "^1.17.5",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "request": "^2.87.0",
-    "sequelize": "^4.37.9",
-    "webpack": "^4.8.3"
+    "sequelize": "^4.37.9"
   },
   "devDependencies": {
     "webpack": "^4.9.1",
