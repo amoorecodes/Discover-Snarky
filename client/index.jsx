@@ -8,4 +8,8 @@ import { allReducers } from './reducers/index.js';
 const store = createStore(allReducers);
 
 
-render(<App />, document.getElementById('app'));
+render(
+<Provider store={store}>
+  <App />
+</Provider>
+, document.getElementById('app'));
